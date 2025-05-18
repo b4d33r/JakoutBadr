@@ -1,0 +1,183 @@
+:root {
+    --bg-color: #1a1b1e;
+    --text-color: #33ff33;
+    --text-color-dim: #2fb82f;
+    --font-main: 'Consolas', monospace;
+    --terminal-bg: rgba(0, 0, 0, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#terminal {
+    width: 100%;
+    max-width: 900px;
+    height: 85vh;
+    background: var(--terminal-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.terminal-header {
+    padding: 10px;
+    background: #2d2d2d;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.terminal-title {
+    color: #999;
+    font-size: 14px;
+}
+
+#terminal-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 15px;
+}
+
+#output {
+    margin-bottom: 20px;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--text-color);
+    margin-right: 10px;
+}
+
+#input {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 15px;
+    outline: none;
+    flex-grow: 1;
+}
+
+/* Command output styling */
+.command-output {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.error-text {
+    color: #ff5f56;
+}
+
+.success-text {
+    color: #27c93f;
+}
+
+.link {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1b1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d2d2d;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Skills progress bar */
+.skill-bar {
+    background: rgba(51, 255, 51, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+.skill-progress {
+    background: var(--text-color);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+/* Timeline styling */
+.timeline-item {
+    padding-left: 20px;
+    border-left: 2px solid var(--text-color-dim);
+    margin: 10px 0;
+}
+
+/* Matrix effect for banner */
+.matrix-effect {
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--text-color);
+} 
