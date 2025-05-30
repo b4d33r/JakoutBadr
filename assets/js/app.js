@@ -135,7 +135,17 @@ class Terminal {
         },
 
         projects: () => `<div class="timeline-item">
-            • <strong>Task Management Website</strong>
+            • <strong>Shape Detector</strong>
+            <br>- Python application for real-time geometric shape detection
+            <br>- Features:
+            <br>  • Real-time webcam shape detection
+            <br>  • Image upload and analysis
+            <br>  • Detection of circles, rectangles, and triangles
+            <br>  • Real-time statistics display
+            <br>  • Modern Qt-based UI
+            <br>- Technologies: Python, OpenCV, PyQt5, NumPy
+            <br>- GitHub: <a href="https://github.com/b4d33r/shape-detector" target="_blank" class="link">github.com/b4d33r/shape-detector</a>
+            <br><br>• <strong>Task Management Website</strong>
             <br>- Developed using HTML/CSS/PHP/JS with database integration
             <br>- Implemented secure user authentication and task tracking
             <br><br>• <strong>Ubuntu Server Configuration</strong>
@@ -154,10 +164,37 @@ class Terminal {
             </div>`,
 
         certifications: () => `<div class="timeline-item">
-            • <strong>CCNA</strong> - Cisco Certified Network Associate
-            <br>• <strong>AWS Academy</strong> - Cloud Computing Certification
-            <br>• <strong>TryHackMe Jr Penetration Tester</strong>
-            <br>• <strong>Cisco Cybersecurity</strong> - Introduction to Cybersecurity
+            • <strong>AWS Academy Graduate - AWS Academy Cloud Foundations</strong>
+            <br>- Issued by Amazon Web Services (AWS)
+            <br>- Date: May 2025
+            <br><br>• <strong>Cisco Certified Network Associate (CCNA): Introduction to Networks</strong>
+            <br>- Issued by Cisco Networking Academy
+            <br>- Date: May 2025
+            <br><br>• <strong>Network Technician Career Path</strong>
+            <br>- Issued by Cisco Networking Academy
+            <br>- Date: May 2025
+            <br><br>• <strong>CompTIA Pentest+</strong>
+            <br>- Issued by TryHackMe
+            <br>- Certification ID: THM-ESXVK9HMIU
+            <br>- Date: April 2025
+            <br><br>• <strong>Web Fundamentals</strong>
+            <br>- Issued by TryHackMe
+            <br>- Certification ID: THM-1WZ92GUAV6
+            <br>- Date: April 2025
+            <br><br>• <strong>Jr Penetration Tester Certificate</strong>
+            <br>- Issued by TryHackMe
+            <br>- Certification ID: THM-7M1K3L2R06
+            <br>- Date: February 2025
+            <br>- Skills: Pentest, Test d'intrusion, Burp Suite, Metasploit, Nmap
+            <br><br>• <strong>Linux 100: Fundamentals</strong>
+            <br>- Issued by TCM Security
+            <br>- Certification ID: cert_xyxs296b
+            <br>- Date: November 2024
+            <br>- Skills: Linux, Linux System Administration, Bash, Scripting, Shell Script
+            <br><br>• <strong>Introduction to Cybersecurity</strong>
+            <br>- Issued by Cisco Networking Academy
+            <br>- Date: October 2024
+            <br>- Skills: Cybersecurity
             </div>`,
 
         contact: () => `<div class="timeline-item">
