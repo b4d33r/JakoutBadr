@@ -186,9 +186,14 @@ class Terminal {
             <br>&nbsp;&nbsp;<span class="dim-text">Offensive/Defensive Training Infrastructure — 2024 – Present</span>
             <br>&nbsp;&nbsp;→ Deployed a full lab with vulnerable machines, IDS/SIEM, and attack tools
             <br>&nbsp;&nbsp;→ Practiced full attack phases: reconnaissance, exploitation, post-exploitation
-            <br><br>• <strong>Port Scanner & Educational Keylogger</strong>
-            <br>&nbsp;&nbsp;<span class="dim-text">Python Security Tools — 2025</span>
-            <br>&nbsp;&nbsp;→ Multi-threaded port scanner and exfiltration technique study
+            <br><br>• <strong>Port Scanner</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Multithreaded Python Security Tool</span>
+            <br>&nbsp;&nbsp;→ Fast, simple multithreaded port scanner supporting single ports and mixed ranges
+            <br>&nbsp;&nbsp;→ <strong>Features:</strong> Threading for speed, supports ranges (e.g., 30-90) and mixed lists
+            <br>&nbsp;&nbsp;→ <strong>GitHub:</strong> <a href="https://github.com/b4d33r/port_scanner" target="_blank" class="link">github.com/b4d33r/port_scanner</a>
+            <br><br>• <strong>Educational Keylogger</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Python Security Research — 2025</span>
+            <br>&nbsp;&nbsp;→ Study of keystroke logging and data exfiltration techniques for educational purposes
             <br><br>• <strong>Task Management Website</strong>
             <br>&nbsp;&nbsp;→ Developed using HTML/CSS/PHP/JS with database integration
             <br>&nbsp;&nbsp;→ Secure user authentication and task tracking
