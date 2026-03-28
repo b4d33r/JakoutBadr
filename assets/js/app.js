@@ -196,7 +196,6 @@ class Terminal {
             <br>&nbsp;&nbsp;<span class="dim-text">Multithreaded Python Security Tool</span>
             <br>&nbsp;&nbsp;→ Fast, simple multithreaded port scanner supporting single ports and mixed ranges
             <br>&nbsp;&nbsp;→ <strong>Features:</strong> Threading for speed, supports ranges (e.g., 30-90) and mixed lists
-            <br>&nbsp;&nbsp;→ <strong>GitHub:</strong> <a href="https://github.com/b4d33r/port_scanner" target="_blank" class="link">github.com/b4d33r/port_scanner</a>
             <br><br>• <strong>SMTP Keystroke Monitor (Lab Edition)</strong>
             <br>&nbsp;&nbsp;<span class="dim-text">Multi-threaded Security Research Tool — 2025</span>
             <br>&nbsp;&nbsp;→ Keylogger with <span class='highlight-text'>SMTP exfiltration</span> designed for DMZ-based relay sims
