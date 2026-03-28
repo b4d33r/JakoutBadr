@@ -179,6 +179,12 @@ class Terminal {
             <br>&nbsp;&nbsp;→ IAM privilege escalation simulation
             <br>&nbsp;&nbsp;→ Log-based detection rules
             <br>&nbsp;&nbsp;→ <strong>Research:</strong> Detection delay & attack surface measurement
+            <br><br>• <strong>Offensive & Defensive Security Lab</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">LAN/DMZ/WAN Enterprise Architecture — Nov 2025 – Jan 2026</span>
+            <br>&nbsp;&nbsp;→ End-to-end simulation of a real enterprise network with 3-zone architecture
+            <br>&nbsp;&nbsp;→ <strong>🔵 Blue Team:</strong> pfSense (segmentation), Suricata (IDS/IPS), Wazuh SIEM, Python Honeypot
+            <br>&nbsp;&nbsp;→ <strong>🔴 Red Team:</strong> Phishing (Living off the Land), Custom Python Keylogger, Credential Exfiltration
+            <br>&nbsp;&nbsp;→ <strong>Tools:</strong> pfSense, Suricata, Wazuh, Kali, Python, Apache2, Postfix, Wireshark
             <br><br>• <strong>SafeByte — CLI Password Manager</strong>
             <br>&nbsp;&nbsp;<span class="dim-text">Credential Security Tool</span>
             <br>&nbsp;&nbsp;→ Developed a CLI password manager with <span class='highlight-text'>AES-GCM</span> encryption and <span class='highlight-text'>Argon2</span> hashing
