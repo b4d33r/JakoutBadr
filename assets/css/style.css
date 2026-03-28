@@ -1,9 +1,16 @@
 :root {
-    --bg-color: #1a1b1e;
-    --text-color: #33ff33;
-    --text-color-dim: #2fb82f;
-    --font-main: 'Consolas', monospace;
-    --terminal-bg: rgba(0, 0, 0, 0.9);
+    --bg-color: #0a0e17;
+    --bg-secondary: #0f1520;
+    --text-color: #e0e6f0;
+    --text-dim: #6b7a99;
+    --accent-primary: #00d4ff;
+    --accent-secondary: #7c3aed;
+    --accent-warm: #f59e0b;
+    --highlight: #00d4ff;
+    --font-main: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    --terminal-bg: rgba(8, 12, 22, 0.96);
+    --border-color: rgba(0, 212, 255, 0.12);
+    --glow: 0 0 20px rgba(0, 212, 255, 0.1), 0 0 60px rgba(0, 212, 255, 0.04);
 }
 
 * {
@@ -21,6 +28,31 @@ body {
     overflow: hidden;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 15% 50%, rgba(0, 212, 255, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
+    z-index: -1;
+    animation: bgPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .container {
     height: 100vh;
     display: flex;
@@ -31,23 +63,26 @@ body {
 
 #terminal {
     width: 100%;
-    max-width: 900px;
-    height: 85vh;
+    max-width: 960px;
+    height: 90vh;
     background: var(--terminal-bg);
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--glow);
     display: flex;
     flex-direction: column;
-    animation: fadeIn 0.5s ease-out;
+    animation: terminalIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(12px);
 }
 
 .terminal-header {
-    padding: 10px;
-    background: #2d2d2d;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding: 12px 16px;
+    background: rgba(14, 18, 30, 0.98);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .terminal-buttons {
@@ -57,25 +92,44 @@ body {
 }
 
 .terminal-button {
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
+    transition: filter 0.2s ease;
+    cursor: pointer;
 }
 
-.close { background: #ff5f56; }
-.minimize { background: #ffbd2e; }
-.maximize { background: #27c93f; }
+.terminal-button:hover {
+    filter: brightness(1.5);
+}
+
+.close {
+    background: #ff5f56;
+    box-shadow: 0 0 6px rgba(255, 95, 86, 0.25);
+}
+
+.minimize {
+    background: #ffbd2e;
+    box-shadow: 0 0 6px rgba(255, 189, 46, 0.25);
+}
+
+.maximize {
+    background: #27c93f;
+    box-shadow: 0 0 6px rgba(39, 201, 63, 0.25);
+}
 
 .terminal-title {
-    color: #999;
-    font-size: 14px;
+    color: #556;
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
 
 #terminal-content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 24px;
     overflow-y: auto;
-    font-size: 15px;
+    font-size: 14px;
+    scroll-behavior: smooth;
 }
 
 #output {
@@ -88,8 +142,10 @@ body {
 }
 
 .prompt {
-    color: var(--text-color);
+    color: var(--accent-primary);
     margin-right: 10px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    font-weight: 600;
 }
 
 #input {
@@ -97,87 +153,164 @@ body {
     border: none;
     color: var(--text-color);
     font-family: var(--font-main);
-    font-size: 15px;
+    font-size: 14px;
     outline: none;
     flex-grow: 1;
+    caret-color: var(--accent-primary);
 }
 
-/* Command output styling */
+/* Output styling */
 .command-output {
     margin: 10px 0;
-    line-height: 1.4;
+    line-height: 1.5;
+    animation: lineIn 0.25s ease-out;
+}
+
+@keyframes lineIn {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .error-text {
     color: #ff5f56;
+    text-shadow: 0 0 6px rgba(255, 95, 86, 0.2);
 }
 
-.success-text {
-    color: #27c93f;
+.highlight-text {
+    color: var(--accent-primary);
+    text-shadow: 0 0 6px rgba(0, 212, 255, 0.15);
+    font-weight: 600;
+}
+
+.dim-text {
+    color: var(--text-dim);
+    font-style: italic;
 }
 
 .link {
-    color: #58a6ff;
+    color: #7c3aed;
     text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
 }
 
 .link:hover {
-    text-decoration: underline;
+    color: #a78bfa;
+    text-shadow: 0 0 8px rgba(124, 58, 237, 0.35);
+    border-bottom-color: #7c3aed;
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes terminalIn {
+    from {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
-/* Scrollbar styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1b1e;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2d2d2d;
-    border-radius: 4px;
+    background: rgba(0, 212, 255, 0.12);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgba(0, 212, 255, 0.25);
 }
 
-/* Skills progress bar */
-.skill-bar {
-    background: rgba(51, 255, 51, 0.1);
-    height: 8px;
-    border-radius: 4px;
-    margin: 5px 0;
+/* Skill category */
+.skill-category {
+    padding: 4px 0;
 }
 
-.skill-progress {
-    background: var(--text-color);
-    height: 100%;
-    border-radius: 4px;
-    transition: width 1s ease-in-out;
-}
-
-/* Timeline styling */
+/* Timeline items */
 .timeline-item {
-    padding-left: 20px;
-    border-left: 2px solid var(--text-color-dim);
+    padding: 12px 20px;
+    border-left: 2px solid rgba(0, 212, 255, 0.2);
     margin: 10px 0;
+    background: rgba(0, 212, 255, 0.02);
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
 }
 
-/* Matrix effect for banner */
+.timeline-item:hover {
+    border-left-color: var(--accent-primary);
+    background: rgba(0, 212, 255, 0.04);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.06);
+}
+
+.timeline-item strong {
+    color: #fff;
+}
+
+/* Matrix banner */
 .matrix-effect {
     font-family: 'Courier New', monospace;
-    text-shadow: 0 0 5px var(--text-color);
-} 
+    text-shadow: 0 0 12px var(--accent-primary), 0 0 25px rgba(0, 212, 255, 0.12);
+    font-size: 11px;
+    line-height: 1.2;
+    color: var(--accent-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+    }
+
+    #terminal {
+        height: 96vh;
+        border-radius: 10px;
+    }
+
+    .terminal-header {
+        border-radius: 10px 10px 0 0;
+    }
+
+    #terminal-content {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    .matrix-effect {
+        font-size: 5px;
+    }
+}
+
+/* Selection */
+::selection {
+    background: rgba(0, 212, 255, 0.2);
+    color: #fff;
+}

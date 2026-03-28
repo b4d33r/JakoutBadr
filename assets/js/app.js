@@ -91,120 +91,180 @@ class Terminal {
             "╚█████╔╝██║  ██║██║  ██╗╚██████╔╝╚██████╔╝   ██║       ██████╔╝██║  ██║██████╔╝██║  ██║",
             " ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝",
             "</pre>",
-            "<div class='success-text'>👋 Hey, Welcome to Jakout's Terminal Portfolio v2.0</div>",
-            "<div>Type <span class='success-text'>help</span> to see available commands</div>"
+            "<div class='highlight-text'>👋 Hey, Welcome to Jakout's Terminal Portfolio v2.0</div>",
+            "<div>Type <span class='highlight-text'>help</span> to see available commands</div>"
         ].join("\n");
         this.printOutput(bannerText);
     }
 
     commands = {
         help: () => `Available commands:
-            <br>• <span class='success-text'>about</span> - Learn about me
-            <br>• <span class='success-text'>skills</span> - View my technical skills
-            <br>• <span class='success-text'>projects</span> - View my projects
-            <br>• <span class='success-text'>education</span> - View my educational background
-            <br>• <span class='success-text'>certifications</span> - View my certifications
-            <br>• <span class='success-text'>contact</span> - Get my contact information
-            <br>• <span class='success-text'>cv</span> - Download my CV
-            <br>• <span class='success-text'>clear</span> - Clear the terminal
-            <br>• <span class='success-text'>banner</span> - Show the welcome banner`,
+            <br>• <span class='highlight-text'>about</span> - Learn about me
+            <br>• <span class='highlight-text'>skills</span> - View my technical skills
+            <br>• <span class='highlight-text'>experience</span> - View my professional experience
+            <br>• <span class='highlight-text'>projects</span> - View my projects
+            <br>• <span class='highlight-text'>education</span> - View my educational background
+            <br>• <span class='highlight-text'>certifications</span> - View my certifications
+            <br>• <span class='highlight-text'>achievements</span> - View awards & extracurriculars
+            <br>• <span class='highlight-text'>languages</span> - View my language proficiency
+            <br>• <span class='highlight-text'>contact</span> - Get my contact information
+            <br>• <span class='highlight-text'>cv</span> - Download my CV
+            <br>• <span class='highlight-text'>clear</span> - Clear the terminal
+            <br>• <span class='highlight-text'>banner</span> - Show the welcome banner`,
 
         about: () => `<div class="timeline-item">
-            First-year engineering student in Smart Networks and Cybersecurity.
-            Passionate about information security and ethical hacking.
-            Proficient in Linux, Python, and Bash for securing network infrastructures.
-            Skilled in vulnerability analysis and seeking a cybersecurity internship.
+            <strong>JAKOUT Badr</strong> — Cybersecurity Engineering Student (Class of 2027)<br><br>
+            Cybersecurity engineering student specializing in <span class='highlight-text'>SOC</span>, <span class='highlight-text'>Penetration Testing</span>, and <span class='highlight-text'>Blue Team</span> operations.<br>
+            Hands-on experience with SIEM monitoring, intrusion detection, incident response, and real-world penetration testing environments.<br><br>
+            📍 331 Lot Touafik, Khouribga 25000, Morocco<br>
+            📞 +212 777545698<br>
+            📧 <a href="mailto:jakoutbadr20@gmail.com" class="link">jakoutbadr20@gmail.com</a><br>
+            🔗 <a href="https://linkedin.com/in/badr-jakout" target="_blank" class="link">linkedin.com/in/badr-jakout</a><br>
+            🐙 <a href="https://github.com/b4d33r" target="_blank" class="link">github.com/b4d33r</a><br><br>
+            🎂 Born: June 2, 2004 &nbsp;|&nbsp; 🇲🇦 Moroccan
             </div>`,
 
         skills: () => {
-            const skills = {
-                "Linux": 85,
-                "Python": 80,
-                "Bash": 75,
-                "Network Security": 70,
-                "Web Development": 65,
-                "System Administration": 70
+            const skillCategories = {
+                "SOC & Defensive Security": [
+                    "SIEM: Wazuh — Monitoring & Administration",
+                    "Detection: Log Correlation, Threat Intelligence",
+                    "Incident: Log Analysis, Incident Response",
+                    "Frameworks: MITRE ATT&CK, OWASP Top 10"
+                ],
+                "Offensive Security": [
+                    "Pentest: Metasploit, Burp Suite, Nmap, Nessus",
+                    "Web: WPScan, Exploitation, Security Auditing",
+                    "Network: pfSense, Wireshark, QEMU/KVM",
+                    "CTF: Web, Cryptography, Forensics"
+                ],
+                "Systems & Cloud": [
+                    "OS: Linux, Windows Server, Active Directory",
+                    "Cloud: AWS (Foundations)",
+                    "Virtualization: QEMU/KVM, VirtualBox"
+                ],
+                "Programming": [
+                    "Scripting: Python, Bash",
+                    "Web/DB: PHP, JavaScript, SQL"
+                ]
             };
-            
-            return Object.entries(skills).map(([skill, level]) => `
-                <div>${skill}</div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: ${level}%"></div>
-                </div>
-            `).join("");
+
+            let output = '';
+            for (const [category, skills] of Object.entries(skillCategories)) {
+                output += `<div class="skill-category"><strong class="highlight-text">[ ${category} ]</strong><br>`;
+                skills.forEach(skill => {
+                    output += `&nbsp;&nbsp;→ ${skill}<br>`;
+                });
+                output += `</div><br>`;
+            }
+            return `<div class="timeline-item">${output}</div>`;
         },
 
+        experience: () => `<div class="timeline-item">
+            <strong class="highlight-text">Cybersecurity Internship</strong><br>
+            <strong>Groupe SONASID</strong> — El Jadida, Morocco<br>
+            <span class="dim-text">July – August 2025</span><br><br>
+            → Deployed and configured the <span class='highlight-text'>Wazuh SIEM</span> platform for real-time security monitoring.<br>
+            → Simulated full APT attack chains: OSINT reconnaissance, exploitation (Nessus, WPScan), post-exploitation.<br>
+            → Designed a segmented network environment (<span class='highlight-text'>QEMU/KVM</span>) with pfSense and Active Directory.<br>
+            → Created custom detection rules and managed incident response workflows.
+            </div>`,
+
         projects: () => `<div class="timeline-item">
-            • <strong>Shape Detector</strong>
-            <br>- Python application for real-time geometric shape detection
-            <br>- Features:
-            <br>  • Real-time webcam shape detection
-            <br>  • Image upload and analysis
-            <br>  • Detection of circles, rectangles, and triangles
-            <br>  • Real-time statistics display
-            <br>  • Modern Qt-based UI
-            <br>- Technologies: Python, OpenCV, PyQt5, NumPy
-            <br>- GitHub: <a href="https://github.com/b4d33r/shape-detector" target="_blank" class="link">github.com/b4d33r/shape-detector</a>
+            • <strong>Cloud Attack Range & Detection</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Cloud Security Research Project</span>
+            <br>&nbsp;&nbsp;→ Simulate cloud attacks and design a full detection pipeline
+            <br>&nbsp;&nbsp;→ <strong>Tools:</strong> LocalStack, Terraform, Stratus Red Team, Wazuh
+            <br>&nbsp;&nbsp;→ Vulnerable cloud infrastructure provisioning
+            <br>&nbsp;&nbsp;→ IAM privilege escalation simulation
+            <br>&nbsp;&nbsp;→ Log-based detection rules
+            <br>&nbsp;&nbsp;→ <strong>Research:</strong> Detection delay & attack surface measurement
+            <br><br>• <strong>SafeByte — CLI Password Manager</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Credential Security Tool</span>
+            <br>&nbsp;&nbsp;→ Developed a CLI password manager with <span class='highlight-text'>AES-GCM</span> encryption and <span class='highlight-text'>Argon2</span> hashing
+            <br><br>• <strong>Home Lab — Virtualized Pentesting Environment</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Offensive/Defensive Training Infrastructure — 2024 – Present</span>
+            <br>&nbsp;&nbsp;→ Deployed a full lab with vulnerable machines, IDS/SIEM, and attack tools
+            <br>&nbsp;&nbsp;→ Practiced full attack phases: reconnaissance, exploitation, post-exploitation
+            <br><br>• <strong>Port Scanner & Educational Keylogger</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Python Security Tools — 2025</span>
+            <br>&nbsp;&nbsp;→ Multi-threaded port scanner and exfiltration technique study
             <br><br>• <strong>Task Management Website</strong>
-            <br>- Developed using HTML/CSS/PHP/JS with database integration
-            <br>- Implemented secure user authentication and task tracking
-            <br><br>• <strong>Ubuntu Server Configuration</strong>
-            <br>- Set up network services in virtualized environment
-            <br>- Configured and secured server infrastructure
-            <br><br>• <strong>Pixel Matrix</strong>
-            <br>- Python-based image processing tool
-            <br>- Implemented various image manipulation algorithms
+            <br>&nbsp;&nbsp;→ Developed using HTML/CSS/PHP/JS with database integration
+            <br>&nbsp;&nbsp;→ Secure user authentication and task tracking
             </div>`,
 
         education: () => `<div class="timeline-item">
-            <strong>Engineering Degree in Smart Networks and Cybersecurity</strong>
-            <br>• First-year student
-            <br>• Focus on network security and system administration
-            <br>• Coursework in cybersecurity and ethical hacking
+            <strong class="highlight-text">Engineering Cycle: Smart Networks & Cybersecurity (IRIC)</strong><br>
+            ENSA Khouribga<br>
+            <span class="dim-text">2024 – 2027</span><br>
+            → Specialization in SOC, Penetration Testing, Blue Team operations<br>
+            → Coursework: SIEM, Incident Response, Network Security, Cloud Infrastructure, Red Hat Administration<br><br>
+            <strong class="highlight-text">Integrated Preparatory Cycle</strong><br>
+            ENSA Khouribga<br>
+            <span class="dim-text">2022 – 2024</span><br>
+            → Core engineering fundamentals (Math, Physics, Computer Science)<br><br>
+            <strong class="highlight-text">Baccalauréat — Mention Très Bien (Honors)</strong><br>
+            Lycée Phosphate Montien, Khouribga<br>
+            <span class="dim-text">2022</span>
             </div>`,
 
         certifications: () => `<div class="timeline-item">
-            • <strong>AWS Academy Graduate - AWS Academy Cloud Foundations</strong>
-            <br>- Issued by Amazon Web Services (AWS)
-            <br>- Date: May 2025
-            <br><br>• <strong>Cisco Certified Network Associate (CCNA): Introduction to Networks</strong>
-            <br>- Issued by Cisco Networking Academy
-            <br>- Date: May 2025
+            • <strong>Red Hat System Administration I (RH124 - RHA) - Ver. 10</strong>
+            <br>&nbsp;&nbsp;Issued by Red Hat — <span class="dim-text">February 2026</span>
+            <br><br>• <strong>Network Security</strong>
+            <br>&nbsp;&nbsp;Issued by Cisco — <span class="dim-text">January 2026</span>
+            <br><br>• <strong>CCNA: Switching, Routing, and Wireless Essentials</strong>
+            <br>&nbsp;&nbsp;Issued by Cisco — <span class="dim-text">September 2025</span>
+            <br><br>• <strong>AWS Academy Graduate — Cloud Foundations</strong>
+            <br>&nbsp;&nbsp;Issued by Amazon Web Services — <span class="dim-text">May 2025</span>
             <br><br>• <strong>Network Technician Career Path</strong>
-            <br>- Issued by Cisco Networking Academy
-            <br>- Date: May 2025
+            <br>&nbsp;&nbsp;Issued by Cisco Networking Academy — <span class="dim-text">May 2025</span>
+            <br><br>• <strong>CCNA: Introduction to Networks</strong>
+            <br>&nbsp;&nbsp;Issued by Cisco Networking Academy — <span class="dim-text">May 2025</span>
             <br><br>• <strong>CompTIA Pentest+</strong>
-            <br>- Issued by TryHackMe
-            <br>- Certification ID: THM-ESXVK9HMIU
-            <br>- Date: April 2025
+            <br>&nbsp;&nbsp;Issued by TryHackMe — ID: THM-ESXVK9HMIU — <span class="dim-text">April 2025</span>
             <br><br>• <strong>Web Fundamentals</strong>
-            <br>- Issued by TryHackMe
-            <br>- Certification ID: THM-1WZ92GUAV6
-            <br>- Date: April 2025
+            <br>&nbsp;&nbsp;Issued by TryHackMe — ID: THM-1WZ92GUAV6 — <span class="dim-text">April 2025</span>
             <br><br>• <strong>Jr Penetration Tester Certificate</strong>
-            <br>- Issued by TryHackMe
-            <br>- Certification ID: THM-7M1K3L2R06
-            <br>- Date: February 2025
-            <br>- Skills: Pentest, Test d'intrusion, Burp Suite, Metasploit, Nmap
-            <br><br>• <strong>Linux 100: Fundamentals</strong>
-            <br>- Issued by TCM Security
-            <br>- Certification ID: cert_xyxs296b
-            <br>- Date: November 2024
-            <br>- Skills: Linux, Linux System Administration, Bash, Scripting, Shell Script
+            <br>&nbsp;&nbsp;Issued by TryHackMe — ID: THM-7M1K3L2R06 — <span class="dim-text">February 2025</span>
+            <br>&nbsp;&nbsp;Skills: Pentest, Burp Suite, Metasploit, Nmap, Privilege Escalation
             <br><br>• <strong>Introduction to Cybersecurity</strong>
-            <br>- Issued by Cisco Networking Academy
-            <br>- Date: October 2024
-            <br>- Skills: Cybersecurity
+            <br>&nbsp;&nbsp;Issued by Cisco Networking Academy — <span class="dim-text">October 2024</span>
+            <br><br>• <strong>Linux 100: Fundamentals</strong>
+            <br>&nbsp;&nbsp;Issued by TCM Security — ID: cert_xyxs296b — <span class="dim-text">November 2024</span>
+            <br>&nbsp;&nbsp;Skills: Linux, System Administration, Bash, Shell Scripting
+            </div>`,
+
+        achievements: () => `<div class="timeline-item">
+            <strong class="highlight-text">🏆 1st Place CTF — NetCom Days 7.0</strong><br>
+            <span class="dim-text">Inter-university Cybersecurity Competition</span><br>
+            → Won challenges in Web, Cryptography, and Forensics categories<br><br>
+            <strong class="highlight-text">🎯 CTF Designer & Organizer — NetCom Days</strong><br>
+            <span class="dim-text">2024 – Present</span><br>
+            → Created challenges and managed competition infrastructure<br>
+            → Organized the annual cybersecurity event for ENSA Khouribga<br><br>
+            <strong class="highlight-text">🛡️ Active Member — B-Secure Club</strong><br>
+            <span class="dim-text">2024 – Present</span><br>
+            → Participation in cybersecurity workshops and community events
+            </div>`,
+
+        languages: () => `<div class="timeline-item">
+            <strong>🇲🇦 Arabic</strong> — Native<br>
+            <strong>🇫🇷 French</strong> — Fluent<br>
+            <strong>🇬🇧 English</strong> — Fluent
             </div>`,
 
         contact: () => `<div class="timeline-item">
             • Email: <a href="mailto:jakoutbadr20@gmail.com" class="link">jakoutbadr20@gmail.com</a>
+            <br>• Phone: <a href="tel:+212777545698" class="link">+212 777545698</a>
             <br>• GitHub: <a href="https://github.com/b4d33r" target="_blank" class="link">github.com/b4d33r</a>
             <br>• LinkedIn: <a href="https://www.linkedin.com/in/badr-jakout/" target="_blank" class="link">linkedin.com/in/badr-jakout</a>
+            <br>• Location: 331 Lot Touafik, Khouribga 25000, Morocco
             </div>`,
 
         cv: () => `<div class="timeline-item">
-            Download my CV: <a href="JAKOUT  BADR .pdf" target="_blank" class="link">JAKOUT_BADR.pdf</a>
+            Download my CV: <a href="cv.pdf" target="_blank" class="link">cv.pdf</a>
             </div>`,
 
         clear: () => {
@@ -234,4 +294,4 @@ class Terminal {
 // Initialize the terminal when the page loads
 document.addEventListener("DOMContentLoaded", () => {
     new Terminal();
-}); 
+});
