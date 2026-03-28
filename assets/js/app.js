@@ -197,9 +197,13 @@ class Terminal {
             <br>&nbsp;&nbsp;→ Fast, simple multithreaded port scanner supporting single ports and mixed ranges
             <br>&nbsp;&nbsp;→ <strong>Features:</strong> Threading for speed, supports ranges (e.g., 30-90) and mixed lists
             <br>&nbsp;&nbsp;→ <strong>GitHub:</strong> <a href="https://github.com/b4d33r/port_scanner" target="_blank" class="link">github.com/b4d33r/port_scanner</a>
-            <br><br>• <strong>Educational Keylogger</strong>
-            <br>&nbsp;&nbsp;<span class="dim-text">Python Security Research — 2025</span>
-            <br>&nbsp;&nbsp;→ Study of keystroke logging and data exfiltration techniques for educational purposes
+            <br><br>• <strong>SMTP Keystroke Monitor (Lab Edition)</strong>
+            <br>&nbsp;&nbsp;<span class="dim-text">Multi-threaded Security Research Tool — 2025</span>
+            <br>&nbsp;&nbsp;→ Keylogger with <span class='highlight-text'>SMTP exfiltration</span> designed for DMZ-based relay sims
+            <br>&nbsp;&nbsp;→ <strong>Architecture:</strong> Triple-threaded (Queue, Buffer, and Sender threads)
+            <br>&nbsp;&nbsp;→ <strong>Data Flow:</strong> Captures in LAN → SMTP to DMZ relay → Forwards to WAN mailbox
+            <br>&nbsp;&nbsp;→ <strong>Features:</strong> SIGINT/SIGTERM handlers for buffer flush & graceful shutdown
+            <br>&nbsp;&nbsp;→ <strong>Build:</strong> Compiled with <span class='highlight-text'>PyInstaller</span> for standalone deployment
             <br><br>• <strong>Task Management Website</strong>
             <br>&nbsp;&nbsp;→ Developed using HTML/CSS/PHP/JS with database integration
             <br>&nbsp;&nbsp;→ Secure user authentication and task tracking
