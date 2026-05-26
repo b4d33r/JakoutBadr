@@ -278,7 +278,7 @@ class Terminal {
             </div>`,
 
         cv: () => `<div class="timeline-item">
-            Download my CV: <a href="cv.pdf" target="_blank" class="link">cv.pdf</a>
+            Download my CV: <a href="CV_PFA_Cybersec_JAKOUT_BADR.pdf" target="_blank" class="link">CV_PFA_Cybersec_JAKOUT_BADR.pdf</a>
             </div>`,
 
         clear: () => {
